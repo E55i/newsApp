@@ -8,7 +8,7 @@ const api = {
     key: process.env.EXPO_PUBLIC_API_KEY
 }
 
-export default function News({...props}) {
+export default function News({ ...props }) {
 
     const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -33,7 +33,7 @@ export default function News({...props}) {
                     })
                 setIsLoading(false);
                 newsRef.current.scrollToOffset({ animated: true, offset: 0 });
-                console.log("url: "+url)
+                console.log("url: " + url)
 
             } catch (error) {
                 setIsLoading(false)
@@ -45,11 +45,11 @@ export default function News({...props}) {
 
     }, [props.keyword])
 
-  
+
     return (
         <>
-            {isLoading === true &&
-                <ActivityIndicator size="large" color='25CED1' />}
+            {isLoading &&
+                <ActivityIndicator style={styles.activityIndicator} size="large" color='25CED1' />}
             {isLoading === false &&
                 <FlatList
                     ref={newsRef}
@@ -61,11 +61,11 @@ export default function News({...props}) {
                         >
                             <Text style={styles.date}>{item.date}</Text>
                             <View style={styles.headingAndImage}>
-                            {item.urlToImage !== "" &&
-                            <Image style={styles.image} source={{ uri: item.urlToImage }}/>}
-                            <Text style={styles.heading}>{item.title}</Text>
+                                {item.urlToImage &&
+                                    <Image style={styles.image} source={{ uri: item.urlToImage }} />}
+                                <Text style={styles.heading}>{item.title}</Text>
                             </View>
-                            <Text style={styles.description}>{item.description}</Text>                            
+                            <Text style={styles.description}>{item.description}</Text>
                         </TouchableOpacity>
                     }
                 />
@@ -74,6 +74,9 @@ export default function News({...props}) {
     )
 }
 const styles = StyleSheet.create({
+    activityIndicator: {
+        alignItems: 'center',
+    },
     newsCard: {
         borderRadius: 20,
         borderColor: '#FCEADE',
@@ -82,11 +85,11 @@ const styles = StyleSheet.create({
         margin: 8,
     },
     date: {
-        fontSize:12,
-        color:'#6F6F6F',        
+        fontSize: 12,
+        color: '#6F6F6F',
     },
-    headingAndImage:{
-        flexDirection:"row",
+    headingAndImage: {
+        flexDirection: "row",
         alignItems: 'center',
         margin: 4,
     },
@@ -99,11 +102,11 @@ const styles = StyleSheet.create({
         borderRadius: 40,
     },
     heading: {
-        fontSize:18,
-        fontWeight: 'bold',  
-        maxWidth: '80%',       
+        fontSize: 18,
+        fontWeight: 'bold',
+        maxWidth: '80%',
     },
     description: {
-        fontSize:14,       
-    },    
+        fontSize: 14,
+    },
 });

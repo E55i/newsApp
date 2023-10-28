@@ -1,4 +1,4 @@
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 
 export default function Categories({...props}) {
