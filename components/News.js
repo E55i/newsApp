@@ -1,6 +1,7 @@
-import { ActivityIndicator, Text, FlatList, TouchableOpacity, Image, Linking, StyleSheet, View } from 'react-native'
+import { ActivityIndicator, Text, FlatList, TouchableOpacity, Image, Linking, StyleSheet, View, Alert } from 'react-native'
 import React, { useState, useEffect, useRef } from 'react';
 import { convertTimeStamp } from '../funcions/ConvertTimeStamp';
+import showAlert from '../funcions/ShowAlert';
 
 
 const api = {
@@ -37,7 +38,7 @@ export default function News({ ...props }) {
 
             } catch (error) {
                 setIsLoading(false)
-                //tee tänne virheilmoitus alertilla               
+                showAlert("Error", "An error occurred while searching for data")              
             }
 
 
