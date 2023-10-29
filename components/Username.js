@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TextInput } from 'react-native'
+import { View, Text, StyleSheet, TextInput, Button } from 'react-native'
 import React, { useState } from 'react'
 import Icon from '@expo/vector-icons/AntDesign'
 import { showAlert } from '../helpers/Functions'
@@ -37,6 +37,10 @@ export default function Username({...props}) {
                 returnKeyType='done'
                 onSubmitEditing={handleSubmit}
                 />
+                <Button
+                color= {props.effectColor}
+                title="OK"
+                onPress={handleSubmit}/>
             </View>
         </View>
     )
@@ -66,11 +70,11 @@ const styles = StyleSheet.create({
     },
     infoText: {
         fontSize: 16,
-        width: '35%',
+        width: '30%',
     },
     username: {
         fontSize: 16,
         color: '#919090',
-        width: '60%',
-    }
+        width: '50%',
+    },
 })
