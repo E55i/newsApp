@@ -4,7 +4,7 @@ import React from 'react'
 export default function Welcome({ ...props }) {
   return (
     <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome {props.username ? props.username+',' : ','}</Text>
+        <Text style={styles.welcome}>Welcome{props.username ? " "+props.username+',' : ','}</Text>
       <Text style={styles.infoText}>It's a great news day!</Text>
     </View>
   )
