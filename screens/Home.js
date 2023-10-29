@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native'
+import React, { useState } from 'react'
 import NewsAppBar from '../components/NewsAppBar'
 import News from '../components/News'
 import Welcome from '../components/Welcome'
@@ -8,7 +8,7 @@ import Search from '../components/Search'
 
 export default function Home({...props}) {
 
-  const [keyword, setKeyword] = useState('bitcoin')
+  const [keyword, setKeyword] = useState('USA')
 
   return (
     <>
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-});
+})

@@ -1,6 +1,6 @@
 import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native'
 import React, {useState} from 'react'
-import Icon from '@expo/vector-icons/MaterialIcons';
+import Icon from '@expo/vector-icons/MaterialIcons'
 
 
 export default function Search({ ...props }) {
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
   },
   
-});
+})

@@ -4,7 +4,7 @@ import React from 'react'
 export default function Categories({...props}) {
 
   const handleButtonClick = (item) => {
-    props.setKeyword(item);
+    props.setKeyword(item)
     console.log("keyword: "+item) 
   }
 
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
     padding: 8,
     textAlign: 'center',
   }
-});
+})

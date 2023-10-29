@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Settings from './screens/Settings';
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { showAlert } from './helpers/Functions';
 
 
 export default function App() {
@@ -29,7 +30,7 @@ export default function App() {
           setThemeColors(JSON.parse(savedThemeColors))
         }
       } catch (error) {
-        console.log('Error loading data:', error)
+        showAlert("Error", "Error loading username and theme colors from phone memory")
       }
     }
 
@@ -42,7 +43,7 @@ export default function App() {
         await AsyncStorage.setItem('username', username)
         await AsyncStorage.setItem('themeColors', JSON.stringify(themeColors))
       } catch (error) {
-        console.error('Error saving data:', error)
+        showAlert("Error", "Error when saving username and theme colors from phone memory")
       }
     }
 

@@ -1,7 +1,7 @@
-import { ActivityIndicator, Text, FlatList, TouchableOpacity, Image, Linking, StyleSheet, View, Alert } from 'react-native'
-import React, { useState, useEffect, useRef } from 'react';
-import { convertTimeStamp } from '../funcions/ConvertTimeStamp';
-import showAlert from '../funcions/ShowAlert';
+import { ActivityIndicator, Text, FlatList, TouchableOpacity, Image, Linking, StyleSheet, View } from 'react-native'
+import React, { useState, useEffect, useRef } from 'react'
+import { convertTimeStamp } from '../helpers/Functions'
+import { showAlert } from '../helpers/Functions'
 
 
 const api = {
@@ -13,7 +13,7 @@ export default function News({ ...props }) {
 
     const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const newsRef = useRef(null);
+    const newsRef = useRef(null)
 
     useEffect(() => {
         (async () => {
@@ -32,8 +32,8 @@ export default function News({ ...props }) {
                             urlToImage: `${article.urlToImage}`,
                         })))
                     })
-                setIsLoading(false);
-                newsRef.current.scrollToOffset({ animated: true, offset: 0 });
+                setIsLoading(false)
+                newsRef.current.scrollToOffset({ animated: true, offset: 0 })
                 console.log("url: " + url)
 
             } catch (error) {
@@ -110,4 +110,4 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 14,
     },
-});
+})

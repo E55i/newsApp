@@ -1,16 +1,22 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import React from 'react';
+import React from 'react'
 import Icon from '@expo/vector-icons/Ionicons'
+import { showAlert } from '../helpers/Functions'
 
 export default function ThemeColor({...props}) {
 
 const handleClick = (value) => {
-    if(value===1){
-        props.setThemeColors(['#FF8A22', '#25CED1'])
+    try {
+        if(value===1){
+            props.setThemeColors(['#FF8A22', '#25CED1'])
+        }
+        else{
+            props.setThemeColors(['#AF3B6E', '#163B6E'])
+        }
+    } catch (error) {
+        showAlert("Error","Error selecting theme color")
     }
-    else{
-        props.setThemeColors(['#AF3B6E', '#163B6E'])
-    }
+   
   }
 
 

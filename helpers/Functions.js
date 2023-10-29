@@ -1,3 +1,6 @@
+import { Alert } from 'react-native'
+
+
 export const convertTimeStamp = (time) => {
     const formatedDate = new Date(time).toLocaleString(
         "en-GB",
@@ -8,4 +11,16 @@ export const convertTimeStamp = (time) => {
         }
     )
     return formatedDate 
+}
+
+
+export const showAlert = (title, message) => {
+
+        Alert.alert(
+            title,
+            message,
+            [{text: "OK"}]
+        )
+    
+  
 }

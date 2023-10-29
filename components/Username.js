@@ -1,13 +1,19 @@
 import { View, Text, StyleSheet, TextInput } from 'react-native'
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import Icon from '@expo/vector-icons/AntDesign'
+import { showAlert } from '../helpers/Functions'
 
 export default function Username({...props}) {
 
     const [inputUsername, setInputUsername] = useState('')
 
     const handleSubmit = () => {
-        props.setUsername(inputUsername)
+        try {
+            props.setUsername(inputUsername)
+        } catch (error) {
+            showAlert("Error","Error changing username")
+        }
+        
       }
     
 
